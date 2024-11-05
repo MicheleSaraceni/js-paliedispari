@@ -43,13 +43,38 @@ function evenodd(n){
     return paridispari;
 }
 
+/**
+ * PALINDROMA: Controllo se una parola è uguale alla sua versione al contrario
+ * @param {string} parola 
+ */
+function palindroma(parola){
+    if (parola === parola.split('').reverse()){
+        return true;
+    }
+    return false;
+}
+
+/*****************************************************************/
 /*Palidroma
 Chiedere all’utente di inserire una parola
 Creare una funzione per capire se la parola inserita è palindroma*/
 
+//Chiedo la parola all'utente
+const parola = prompt("Inserisci una parola");
+
+//Controllo tramite l'apposita funzione se la parola è palindroma o meno e do la risposta all'utente
+const flag = palindroma(parola);
+console.log (flag);
+if(flag){
+    console.log ("La parola inserita è: " + parola + " ed è palindroma")
+} else{
+    console.log ("La parola inserita è: " + parola + " e non è palindroma")
+}
 
 
 
+
+/*****************************************************************/
 /*Pari e Dispari
 L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
 Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).*/
@@ -62,6 +87,7 @@ let nplayer = parseInt(prompt("Scegli numero da 1 a 5"));
 let ncomputer = random(1, 5);
 console.log ("Il numero del pc è: " + ncomputer);
 
+//Controllo i vari possibili esiti e do una risposta all'utente
 if (evenodd(nplayer) === sceltaplayer && evenodd(ncomputer) !== sceltaplayer){
     console.log ("Hai vinto!");
 } else if (evenodd(nplayer) !== sceltaplayer && evenodd(ncomputer) === sceltaplayer){
@@ -74,8 +100,11 @@ if (evenodd(nplayer) === sceltaplayer && evenodd(ncomputer) !== sceltaplayer){
 
 
 
-
+/*****************************************************************/
 /*Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.*/
 
+
+let n1 = parseInt(prompt("Inserisci il Primo numero numero"));
+let n2 = parseInt(prompt("Inserisci il secondo numero"));

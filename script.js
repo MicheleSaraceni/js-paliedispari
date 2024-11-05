@@ -94,7 +94,7 @@ while (sceltaplayer !== "pari" && sceltaplayer !== "dispari"){
     sceltaplayer = prompt("Hai inserito un valore non corretto, scegli pari o dispari").toLowerCase();
 }
 let nplayer = parseInt(prompt("Scegli numero da 1 a 5"));
-while (nplayer < 1 || nplayer > 5 ){
+while (nplayer < 1 || nplayer > 5 || isNaN(nplayer) === true){
     nplayer = parseInt(prompt("Non hai inserito un numero da 1 a 5, riprova"));
 }
 console.log ("Il numero che hai scelto è: " + nplayer);

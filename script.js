@@ -30,17 +30,16 @@ function random(min, max){
 }
 
 /**
- * PARI O DISPARO: Ritorna la parola "True" o "False"
+ * PARI O DISPARO: Ritorna una stringa con scritto "pari" o "dispari"
  * @param {number} n 
  * @returns 
  * 
  */
 function evenodd(n){
-    let paridispari = "dispari";
     if (n % 2 === 0){
-        paridispari = "pari";
+        return "pari";
     }
-    return paridispari;
+    return "dispari";
 }
 
 /**
@@ -48,7 +47,9 @@ function evenodd(n){
  * @param {string} parola 
  */
 function palindroma(parola){
-    if (parola === parola.split('').reverse()){
+    parola.toLowerCase();
+    const parolareverse = parola.split('').reverse().join('');
+    if (parola === parolareverse){
         return true;
     }
     return false;
@@ -63,9 +64,7 @@ Creare una funzione per capire se la parola inserita è palindroma*/
 const parola = prompt("Inserisci una parola");
 
 //Controllo tramite l'apposita funzione se la parola è palindroma o meno e do la risposta all'utente
-const flag = palindroma(parola);
-console.log (flag);
-if(flag){
+if(palindroma(parola)){
     console.log ("La parola inserita è: " + parola + " ed è palindroma")
 } else{
     console.log ("La parola inserita è: " + parola + " e non è palindroma")
@@ -77,34 +76,30 @@ if(flag){
 /*****************************************************************/
 /*Pari e Dispari
 L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
-Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).*/
+Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+Sommiamo i due numeri
+Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+Dichiariamo chi ha vinto.*/
 
 //Chiedo all'utente numero e pari o dispari
-let sceltaplayer = prompt("Scegli pari o dispari");
+let sceltaplayer = prompt("Scegli pari o dispari").toLowerCase();
 let nplayer = parseInt(prompt("Scegli numero da 1 a 5"));
+console.log ("Il numero che hai scelto è: " + nplayer);
+
 
 //Richiamo la funzione random e gli do valore min 1 max 5 per ottenere il numero del computer
 let ncomputer = random(1, 5);
 console.log ("Il numero del pc è: " + ncomputer);
 
+//sommo i due valori
+let somma = ncomputer + nplayer
+console.log ("La somma di " + nplayer + " + " + ncomputer + " è uguale a: " + somma);
+
 //Controllo i vari possibili esiti e do una risposta all'utente
-if (evenodd(nplayer) === sceltaplayer && evenodd(ncomputer) !== sceltaplayer){
-    console.log ("Hai vinto!");
-} else if (evenodd(nplayer) !== sceltaplayer && evenodd(ncomputer) === sceltaplayer){
-    console.log ("Hai perso!");
-} else if (evenodd(nplayer) === sceltaplayer && evenodd(ncomputer) === sceltaplayer){
-    console.log ("Pareggio, avete indovinato entrambi!");
-} else {
-    console.log ("Avete perso entrambi!");
+if(evenodd(somma) === sceltaplayer){
+    console.log("Hai vinto! " + somma + " è un numero " + sceltaplayer)
+} else{
+    console.log("Hai perso! " + somma + " non è un numero " + sceltaplayer)
 }
 
 
-
-/*****************************************************************/
-/*Sommiamo i due numeri
-Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-Dichiariamo chi ha vinto.*/
-
-
-let n1 = parseInt(prompt("Inserisci il Primo numero numero"));
-let n2 = parseInt(prompt("Inserisci il secondo numero"));
